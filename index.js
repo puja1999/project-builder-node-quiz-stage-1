@@ -1,9 +1,14 @@
-const fs = require("fs")
-const quiz = require('./quiz')
+const fs = require("fs");
+const quiz = require('./quiz');
 
-fs.writeFileSync("quiz.json", JSON.stringify({ quiz : [] }))
+// fetching data from quiz.js file
+fs.writeFileSync("quiz.json", JSON.stringify({ question : [] }))
 
+// reading data of quiz.json file
 const quizJson = JSON.parse(fs.readFileSync("quiz.json"))
 
-quizJson.quiz.push(quiz())
-fs.writeFileSync("quiz.json", JSON.stringify(quiz.json))
+// appending data 
+quizJson.question.push(quiz())
+
+// updating json file  
+fs.writeFileSync("quiz.json", JSON.stringify(quizJson))
